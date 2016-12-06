@@ -1,0 +1,146 @@
+//colors
+$color_mine_shaft_approx: #333;
+$color_cape_cod_approx: #404040;
+$color_picton_blue_approx: #2db7f5;
+$white: #fff;
+$color_storm_dust_approx: #656565;
+$color_gray_nurse_approx: #e9e9e9;
+$color_mountain_mist_approx: #999;
+
+.ant-layout-aside {
+  min-height: 100%;
+  .ant-layout-logo {
+    width: 150px;
+    height: 32px;
+    color: $white;
+    text-align: center;
+    font-size: 18px;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 6px;
+    margin: 16px 24px 16px 28px;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+  }
+  .ant-layout-sider {
+    width: 224px;
+    background: $color_cape_cod_approx;
+    position: absolute;
+    overflow: visible;
+    padding-bottom: 24px;
+    height: 100%;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+    > .ant-menu {
+      margin-bottom: 20px;
+      > .ant-menu-item {
+        margin: 16px 0;
+        .nav-text {
+          vertical-align: baseline;
+          display: inline-block;
+          a{
+            color: $white;
+          }
+        }
+        > .anticon {
+          //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+          transition: font-size .3s;
+        }
+      }
+    }
+  }
+  .ant-aside-action {
+    height: 42px;
+    width: 224px;
+    position: absolute;
+    bottom: 0;
+    background: $color_storm_dust_approx;
+    color: $white;
+    text-align: center;
+    line-height: 42px;
+    cursor: pointer;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+  }
+  .ant-layout-header {
+    background: $white;
+    height: 64px;
+    border-bottom: 1px solid $color_gray_nurse_approx;
+  }
+  .ant-layout-breadcrumb {
+    margin: 7px 0 -17px 24px;
+  }
+  .ant-layout-main {
+    margin-left: 224px;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+    height: 100vh;
+    overflow-x: scroll;
+  }
+  .ant-layout-container {
+    margin: 24px 16px;
+    min-height: calc(100vh - 112px);
+  }
+  .ant-layout-content {
+    padding: 24px;
+    position: relative;
+  }
+  .ant-layout-footer {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    font-size: 12px;
+    color: $color_mountain_mist_approx;
+    background: $white;
+    border-top: 1px solid $color_gray_nurse_approx;
+    width: 100%;
+  }
+}
+.ant-layout-aside-collapse {
+  .ant-layout-logo {
+    width: 32px;
+    margin: 16px;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+  }
+  .ant-layout-sider {
+    width: 64px;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+    > .ant-menu > .ant-menu-item {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 0s ease;
+      .nav-text {
+        display: none;
+      }
+      &:hover {
+        background: $color_picton_blue_approx;
+        color: $white;
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: all 0s ease;
+        .nav-text {
+          display: inline-block;
+          vertical-align: top;
+          background: $color_picton_blue_approx;
+          color: $white;
+          padding-right: 16px;
+          //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+          border-radius: 0 5px 5px 0;
+        }
+      }
+      > .anticon {
+        font-size: 16px;
+        display: inline-block;
+      }
+    }
+  }
+  .ant-aside-action {
+    width: 64px;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+  }
+  .ant-layout-main {
+    margin-left: 64px;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+  }
+}

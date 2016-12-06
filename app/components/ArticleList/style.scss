@@ -1,0 +1,14 @@
+.article-list{
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  .loading{
+    text-align: center;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    margin: 20px 0;
+  }
+}

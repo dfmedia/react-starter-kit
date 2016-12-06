@@ -61,7 +61,7 @@ export function fetchArticles(){
         dispatch( requestArticles() );
 
         // Make an AJAX call to the endpoint
-        return axios.get( 'https://contenthub-digitalfirstmedia-com.go-vip.co/wp-json/wp/v2/posts?per_page=50' )
+        return axios.get( 'https://www.denverpost.com/wp-json/wp/v2/posts?per_page=50' )
 
         // When the response comes in
             .then( function( response ){

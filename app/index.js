@@ -32,6 +32,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={App}>
+                <IndexRoute component={Articles} />
                 <Route path="articles" component={Articles} />
                 <Route path="settings" component={Settings} />
             </Route>

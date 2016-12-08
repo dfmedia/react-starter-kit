@@ -1,19 +1,9 @@
-import React, { Component } from 'react';
-import { Card, Table } from 'antd';
+import React from 'react';
+import { Card } from 'antd';
 
-class SettingsTable extends Component {
-
-    render() {
-
-        return (
-            <Card title="Settings" style={{marginBottom: '30px'}}>
-
-                Show some settings panel here
-
-            </Card>
-        )
-    }
-
-}
+const SettingsTable = () =>
+  <Card title="Settings" style={{ marginBottom: '30px' }}>
+    Show some settings panel here
+  </Card>;
 
 export default SettingsTable;

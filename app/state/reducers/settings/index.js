@@ -1,17 +1,15 @@
 const initalState = {
-    exampleSetting: "exampleValue"
+  exampleSetting: 'exampleValue',
 };
 
-function settings( state = initalState, action ) {
+function settings(state = initalState, action) {
+  switch (action.type) {
 
-    switch ( action.type ) {
+    // @todo put reducers for each action type related to settings here
 
-        // @todo put reducers for each action type related to settings here
-
-        default:
-            return state;
-    }
-
+    default:
+      return state;
+  }
 }
 
 export default settings;

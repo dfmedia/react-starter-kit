@@ -2,7 +2,7 @@
  * External Dependencies
  */
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import createLogger from 'redux-logger'
+import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { routerReducer } from 'react-router-redux';
 
@@ -20,9 +20,9 @@ import settings from './reducers/settings';
  * each subtree has it's own reducers
  */
 const rootReducer = combineReducers({
-    articles,
-    settings,
-    routing: routerReducer
+  articles,
+  settings,
+  routing: routerReducer,
 });
 
 /**
@@ -34,11 +34,9 @@ const loggerMiddleware = createLogger();
  * This configures the store, and applies thunk and logger middlewares
  * Additionally, this sets up support for the devToolsExtension
  */
-export default function configureStore( initialState = {} ) {
-
-    return createStore( rootReducer, initialState, compose(
-        applyMiddleware( thunk, loggerMiddleware ),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
-    ));
-
+export default function configureStore(initialState = {}) {
+  return createStore(rootReducer, initialState, compose(
+    applyMiddleware(thunk, loggerMiddleware),
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
+  ));
 }

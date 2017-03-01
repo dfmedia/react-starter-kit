@@ -2,9 +2,18 @@
  * External Dependencies
  */
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import ApolloClient, { createNetworkInterface } from  'apollo-client';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { routerReducer } from 'react-router-redux';
+
+/**
+ * Create the ApolloClient
+ * @type {ApolloClient}
+ */
+export const client = new ApolloClient({
+  networkInterface: createNetworkInterface({ uri: 'http://denverpost.dev/graphql'})
+});
 
 /**
  * State reducers
@@ -22,6 +31,7 @@ import settings from './reducers/settings';
 const rootReducer = combineReducers({
   articles,
   settings,
+  apollo: client.reducer(),
   routing: routerReducer,
 });
 
@@ -34,9 +44,9 @@ const loggerMiddleware = createLogger();
  * This configures the store, and applies thunk and logger middlewares
  * Additionally, this sets up support for the devToolsExtension
  */
-export default function configureStore(initialState = {}) {
+export function configureStore(initialState = {}) {
   return createStore(rootReducer, initialState, compose(
     applyMiddleware(thunk, loggerMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : f => f,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ));
 }

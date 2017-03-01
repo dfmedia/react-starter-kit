@@ -1,16 +1,23 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../state/actions/articles';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import ArticleList from '../../components/ArticleList';
 
-function mapStateToProps(state) {
-  return {
-    articles: state.articles,
-  };
-}
+const articlesQuery = gql`
+    query postList {
+        posts {
+            edges {
+                node {
+                    id
+                    postId
+                    title
+                    date
+                    excerpt
+                    content
+                    link
+                }
+            }
+        }
+    }
+`;
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
+export default graphql(articlesQuery)(ArticleList);

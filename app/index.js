@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Router, Route, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
+import { ApolloProvider } from 'react-apollo';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 /**
@@ -15,7 +15,7 @@ import 'antd/dist/antd.css';
 /**
  * Create the Redux store
  */
-import configureStore from './state';
+import { client, configureStore } from './state';
 import App from './containers/App';
 import Articles from './containers/Articles';
 import Settings from './containers/Settings';
@@ -27,13 +27,13 @@ const history = syncHistoryWithStore(browserHistory, store);
  * Render the app
  */
 ReactDOM.render(
-  <Provider store={store}>
+  <ApolloProvider store={store} client={client}>
     <Router history={history}>
       <Route path="/" component={App}>
         <Route path="articles" component={Articles} />
         <Route path="settings" component={Settings} />
       </Route>
     </Router>
-  </Provider>,
+  </ApolloProvider>,
   document.getElementById('root'),
 );

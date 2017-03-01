@@ -50,9 +50,6 @@ class Layout extends Component {
               </div>
             </div>
           </div>
-          <div className="ant-layout-footer">
-            Digital First Media ©2016
-          </div>
         </div>
       </div>
     );

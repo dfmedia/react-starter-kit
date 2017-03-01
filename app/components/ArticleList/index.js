@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Spin } from 'antd';
-import Article from '../Article';
+import Article from '../ArticleCard';
 
 import './style.scss';
 
@@ -12,13 +12,7 @@ class ArticleList extends Component {
    * When the component mounts
    */
   componentDidMount() {
-    // access the articles and the fetchArticles action from the props
-    const { articles, fetchArticles } = this.props;
 
-    // If there are no articles, fetch some
-    if (!articles.items.length && !articles.isFetching) {
-      fetchArticles();
-    }
   }
 
   /**
@@ -26,39 +20,29 @@ class ArticleList extends Component {
    * @returns {*}
    */
   render() {
-    const { articles } = this.props;
-
-    console.log(articles);
-
-    if (articles.items.length) {
+    const { data } = this.props;
+    if ( data.loading ) {
+      return (
+        <div className="loading">
+          <Spin />
+        </div>
+      );
+    } else {
+      console.log(data.posts.edges);
       return (
         <div className="article-list">
-          {(() => {
-            if (articles.isFetching) {
-              return (
-                <div className="loading">
-                  <Spin />
-                </div>
-              );
-            }
-            return (
-              articles.items.map((article, i) => <Article key={i} article={article} />)
-            );
-          })()}
+            { data.posts.edges.map((edge, i) => <Article key={edge.node.id} article={edge.node} /> )}
         </div>
       );
     }
-    return (
-      <div className="loading">
-        <Spin />
-      </div>
-    );
   }
 }
 
 ArticleList.propTypes = {
-  articles: React.PropTypes.object,
-  fetchArticles: React.PropTypes.func,
+  data: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    posts: PropTypes.object,
+  }).isRequired,
 };
 
 /**

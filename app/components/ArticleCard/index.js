@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Card, Button } from 'antd';
-import { convertUnicode } from '../../utils/utils';
 
 class ArticleCard extends Component {
   constructor() {
@@ -26,7 +25,7 @@ class ArticleCard extends Component {
     const { article } = this.props;
     return (
       <Card title={article.title} extra={<Button size="small" onClick={this.handleEditClick}>Edit</Button>} style={{ marginBottom: '30px' }}>
-        <div dangerouslySetInnerHTML={{ __html: convertUnicode(article.excerpt) }} />
+        <div dangerouslySetInnerHTML={{ __html: article.content }} />
         <br />
         <Button type="primary" onClick={this.handleButtonClick}>View Article</Button>
       </Card>

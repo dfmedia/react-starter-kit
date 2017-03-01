@@ -3,8 +3,8 @@ import gql from 'graphql-tag';
 import ArticleList from '../../components/ArticleList';
 
 const articlesQuery = gql`
-    query postList {
-        posts {
+    query articleList {
+        posts( first: 5 ) {
             edges {
                 node {
                     id
@@ -20,4 +20,6 @@ const articlesQuery = gql`
     }
 `;
 
-export default graphql(articlesQuery)(ArticleList);
+export default graphql(articlesQuery, {
+    options: { pollInterval: 5000 },
+})(ArticleList);

@@ -8,18 +8,13 @@ import './style.scss';
  * Create the Component
  */
 class ArticleList extends Component {
-  /**
-   * When the component mounts
-   */
-  componentDidMount() {
-
-  }
 
   /**
    * Render the article
    * @returns {*}
    */
   render() {
+
     const { data } = this.props;
     if ( data.loading ) {
       return (
@@ -28,7 +23,6 @@ class ArticleList extends Component {
         </div>
       );
     } else {
-      console.log(data.posts.edges);
       return (
         <div className="article-list">
             { data.posts.edges.map((edge, i) => <Article key={edge.node.id} article={edge.node} /> )}

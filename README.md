@@ -1,4 +1,4 @@
-#DFM React Starter Kit
+# DFM React Starter Kit
 
 This is a sample app using React, Redux, React Router, Axios (ajax fetching), and the Ant Design component library
 
